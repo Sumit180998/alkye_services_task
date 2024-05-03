@@ -1,0 +1,89 @@
+.footer {
+    /* padding-top: 105px;
+    padding-bottom: 83px; */
+    display: flex;
+    background-color: #000000;
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 1050px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  .container-xs {
+    max-width: 1102px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+  .footer__column {
+    gap:90px;
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width: 1050px) {
+      gap: 67px;
+      padding: 20px;
+    }
+  
+    @media only screen and (max-width: 550px) {
+      gap: 45px;
+    }
+  }
+  
+  .footer__social-row {
+    width: 41%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    @media only screen and (max-width: 1050px) {
+      width: 100%;
+    }
+  }
+  
+  .footer__icon-button--facebook {
+    width: 50px;
+  }
+  
+  .footer__image--instagram {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .footer__links-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    @media only screen and (max-width: 1050px) {
+      flex-direction: column;
+    }
+  }
+  
+  .footer__links-column--privacy {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .privacypolicy-link {
+    margin-top: 25px;
+  }
+  
+  .alkyetest-link {
+    margin-top: 151px;
+  }
+  
+  .footer__links-column--contact {
+    gap: 1px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ui_heading{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+    list-style: none;
+  }
