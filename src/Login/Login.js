@@ -25,9 +25,11 @@ function sum(){
       "password": Password
   })
   .then((res)=>{
-    // console.log(res) 
-     Dispatch(Auth(true))
-     Dispatch(Token(res.data.token))
+    console.log(res) 
+    //  Dispatch(Auth(true))
+     sessionStorage.setItem('auth',true)
+     sessionStorage.setItem('Token',res.data.token)
+    //  Dispatch(Token(res.data.token))
      Navigate('/dashboard')
     
     })

@@ -2,7 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-export const ArticlesApi = createAsyncThunk('alkya_login', async (Token) => {
+export const ArticlesApi = createAsyncThunk('alkya_login', async () => {
+    
+    const Token=sessionStorage.getItem('Token')
     console.log(Token); 
     
     
@@ -19,21 +21,21 @@ export const ArticlesApi = createAsyncThunk('alkya_login', async (Token) => {
 const initialState={
     value:0,
     Articlesvalue:{},
-    auth: false,
-    Token:false
+    // auth: false,
+    // Token:false
 }
 export const Slice=createSlice({
     name:"alkya_service",
     initialState,
-    reducers:{
-        Auth:(state, action)=>{
-            state.auth= action.payload
+    // reducers:{
+    //     Auth:(state, action)=>{
+    //         state.auth= action.payload
 
-        },
-        Token:(state, action)=>{
-            state.Token=action.payload
-        }
-    },
+    //     },
+    //     Token:(state, action)=>{
+    //         state.Token=action.payload
+    //     }
+    // },
     extraReducers: (builder) => {
         builder.addCase(ArticlesApi.fulfilled, (state, action) => {
             console.log(action.payload)
