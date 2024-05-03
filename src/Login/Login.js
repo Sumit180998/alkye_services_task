@@ -11,11 +11,15 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
   const[Email,setEmail]=useState()
   const[Password, setPassword]=useState()
+  const[Open, setOpen]=useState('email')
+  const[EyeOpen,setEyeOpen]=useState('password')
+
   const Dispatch =useDispatch()
   const  Navigate =useNavigate()
   const data=useSelector(state=>state)
   // console.log(data.valueLogin)
 function sum(){
+
   axios.post("https://untitled-twkmuar27a-uc.a.run.app/api/login/",{
       "username": Email,
       "password": Password
@@ -34,7 +38,7 @@ function sum(){
     <div className='sign-up-step-one'>
       <div className="sign-up">
   {/* login instructions section */}
-
+ { Open ==='email' && 
   <div className="sign-up__header">
     <div className="sign-up__header-column">
       <img
@@ -42,14 +46,14 @@ function sum(){
         alt="headerlogo"
         className="sign-up__logo"
       />
-      <p className="sign-up__step-indicator ui text size-md">STEP&nbsp;1</p>
+      <p className="sign-up__step-indicator ui text size-md">STEP&nbsp;1 &nbsp; <span>Login</span> </p>
       <div className="sign-up__instructions-column">
         <p className="sign-up__instructions-title ui text size-lg">
           Enter your email address to continue
         </p>
-        <p className="sign-up__instructions-text ui text size-md">
-          Log in to your account. If you don’t have one, you will be prompted to
-          create one.
+        <p className="sign-up__instructions-text ui text size-md" onClick={()=> Navigate('/signup')}>
+          If you don’t have one, you will be prompted to
+          create one. <span style={{color:'Red'}}>sign-up</span> ?
         </p>
       </div>
     </div>
@@ -57,10 +61,10 @@ function sum(){
       <label className="ui input size-xs outline round undefined_undefined undefined_undefined_border">
         <input type="email"    placeholder="Email" value={Email} onChange={(e)=>setEmail(e.target.value)}  />
       </label>
-      <button className="ui button size-sm fill round">Continue</button>
+      <button className="ui button size-sm fill round" onClick={()=>setOpen("password")}>Continue</button>
     </div>
-  </div>
-
+  </div>}
+{Open === 'password' && <>
   <div className="sign-up__header">
     <div className="sign-up__header-column">
       <img
@@ -71,10 +75,11 @@ function sum(){
       <p className="sign-up__step-indicator ui text size-md">STEP&nbsp;2</p>
       <div className="sign-up__instructions-column">
         <p className="sign-up__instructions-title ui text size-lg">
-        Create an account to continue
+       Enter in account to continue
         </p>
-        <p className="sign-up__instructions-text ui text size-md">
-        You’ll be able to log in to Dingoo with this email address and password.
+        <p className="sign-up__instructions-text ui text size-md" onClick={()=> Navigate('/signup')}>
+          If you don’t have one, you will be prompted to
+          create one. <span style={{color:'Red'}}>sign-up</span> ?
         </p>
       </div>
     </div>
@@ -83,14 +88,15 @@ function sum(){
                 <label
                   class="sign-up__password-input ui input size-xs outline round undefined_undefined undefined_undefined_border"
                 >
-                  <input type="password" placeholder="Choose a password" value={Password} onChange={(e)=>setPassword(e.target.value)} />
-                  <img src={img_eyeoff} alt="eye-off" class="eye-off" />
-                </label>
+                  <input type={EyeOpen} placeholder="Choose a password" value={Password} onChange={(e)=>setPassword(e.target.value)} />
+                 { EyeOpen==='password' && <i class="fa-regular fa-eye-slash" onClick={()=>setEyeOpen('text')}></i>}
+                {  EyeOpen==='text' &&  <i class="fa-regular fa-eye" onClick={()=>setEyeOpen('password')}></i>}
+                   </label>
                 <div class="sign-up__password-hint-group">
-                  <p class="sign-up__password-hint ui text size-s" style={{fontSize: "20px",
-    fontWeight:'400'}}>
-                    Use a minimum of 6 characters (case sensitive) with at least one number or special character.
-                  </p>
+                  
+                  <button class="ui button size-sm fill round" style={{marginRight:"10px"}}
+                  onClick={()=>setOpen('email')}
+                   >back</button>
                   <button class="ui button size-sm fill round"
                   //  onClick={()=>Dispatch(LoginApi([Email,Password]))}
                   onClick={()=>sum()}
@@ -104,7 +110,7 @@ function sum(){
               </div>
               
   </div>
-  <p className="sign-up__disclaimer ui text size-xs">
+  {/* <p className="sign-up__disclaimer ui text size-xs">
   <span className="sign-up__disclaimer-span">
     Dingoo will use your data to personalise and improve your Dingoo experience
     and to send you information about Dingoo. You can change your communication
@@ -124,7 +130,8 @@ function sum(){
   <span className="sign-up__disclaimer-span"> &nbsp;and&nbsp;</span>
   <span className="sign-up__disclaimer-span"> Collection Statement</span>
   <span className="sign-up__disclaimer-span"> .</span>
-</p>
+</p>  */}
+</> }
 </div>
   <Footer/>
     </div>

@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import { Store } from './Redux/Store/Store';
 import RouteAlkye from './Router/RouteAlkye';
 import Card from './Card/Card';
+import'@fortawesome/fontawesome-free/css/all.min.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,6 +1,6 @@
-.footer {
-    /* padding-top: 105px;
-    padding-bottom: 83px; */
+ .footer {
+    padding-top: 55px;
+    padding-bottom:10px ;
     display: flex;
     background-color: #000000;
     align-self: stretch;
@@ -71,7 +71,7 @@
   }
   
   .alkyetest-link {
-    margin-top: 151px;
+    /* margin-top: 151px; */
   }
   
   .footer__links-column--contact {
