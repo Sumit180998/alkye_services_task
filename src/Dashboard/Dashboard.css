@@ -135,7 +135,7 @@
   
   .dashboard__logo--secondary {
     height: 59px;
-    margin-top: -59px;
+   
     position: relative;
     width: 100%;
     object-fit: contain;

@@ -84,7 +84,7 @@ function sum(){
       </div>
     </div>
     <div class="sign-up__password-group">
-                <p class="ui text size-md">Enter a password to create your account with </p>
+                <p class="ui text size-md">Enter a password  </p>
                 <label
                   class="sign-up__password-input ui input size-xs outline round undefined_undefined undefined_undefined_border"
                 >
